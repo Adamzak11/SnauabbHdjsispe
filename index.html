@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>StatusHD — Compress Video &amp; Gambar untuk WhatsApp &amp; TikTok</title>
+  <meta name="description" content="Compress video dan gambar supaya kekal HD bila pos di Status WhatsApp dan TikTok. Semua proses dibuat dalam browser anda." />
+  <meta name="theme-color" content="#0f1115" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Status<span>HD</span></h1>
+    <p class="tag">Compress video &amp; gambar supaya kekal HD di Status WhatsApp dan TikTok.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>1. Pilih platform</h2>
+      <div class="seg" id="platform">
+        <button type="button" data-value="whatsapp" class="active">
+          <strong>Status WhatsApp</strong>
+          <small>≤16MB setiap klip, potong ikut 60 saat</small>
+        </button>
+        <button type="button" data-value="tiktok">
+          <strong>TikTok</strong>
+          <small>1080p, bitrate tinggi, kualiti maksimum</small>
+        </button>
+      </div>
+
+      <div class="options">
+        <label>Resolusi
+          <select id="resolution">
+            <option value="1080">1080p (Full HD)</option>
+            <option value="720">720p (fail lebih kecil)</option>
+          </select>
+        </label>
+        <label>FPS video
+          <select id="fps">
+            <option value="30">30 fps</option>
+            <option value="60">60 fps (jika asal 60)</option>
+          </select>
+        </label>
+        <label id="splitWrap">Potong video setiap
+          <select id="split">
+            <option value="60">60 saat</option>
+            <option value="90">90 saat</option>
+            <option value="30">30 saat</option>
+            <option value="0">Jangan potong</option>
+          </select>
+        </label>
+        <label class="check"><input type="checkbox" id="fill" /> Jadikan 9:16 (latar kabur)</label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2. Masukkan fail</h2>
+      <label id="drop" class="drop">
+        <input type="file" id="fileInput" accept="image/*,video/*" multiple hidden />
+        <span class="big">＋</span>
+        <span>Tekan untuk pilih atau seret video / gambar ke sini</span>
+        <small>Semua proses berlaku dalam peranti anda — fail tidak dimuat naik ke mana-mana.</small>
+      </label>
+    </section>
+
+    <section class="card" id="queueCard" hidden>
+      <div class="row">
+        <h2>3. Hasil</h2>
+        <button type="button" id="startBtn" class="primary">Mula compress</button>
+      </div>
+      <p id="engineStatus" class="muted"></p>
+      <ul id="queue"></ul>
+    </section>
+
+    <section class="card tips">
+      <h2>Tips supaya kekal HD</h2>
+      <ul>
+        <li><b>WhatsApp:</b> semasa hantar status, tekan ikon <b>HD</b> di atas sebelum pos. Fail di bawah 16MB kurang dimampatkan semula oleh WhatsApp.</li>
+        <li><b>TikTok:</b> hidupkan <i>Tetapan → Data → Muat naik kualiti tinggi</i> (Upload HD).</li>
+        <li>Gunakan Wi-Fi yang laju semasa memuat naik — aplikasi akan turunkan kualiti jika internet perlahan.</li>
+        <li>Video panjang akan mengambil masa untuk diproses dalam browser. Biarkan tab ini terbuka.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>Dikuasakan oleh <a href="https://ffmpegwasm.netlify.app/" target="_blank" rel="noopener">ffmpeg.wasm</a>. Tiada data dihantar ke server.</footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
